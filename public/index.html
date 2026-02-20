@@ -1,0 +1,596 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description"
+        content="Shiv Bakery — Premium artisan bakery offering handcrafted cakes, pastries, breads, and cookies. Order online for delivery or pickup.">
+    <title>Shiv Bakery — Artisan Bakery & Pastry Shop</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,400;0,600;0,700;0,800;1,400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="shop.css">
+</head>
+
+<body>
+
+    <!-- ====== NAVBAR ====== -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-brand" onclick="scrollToSection('hero')">
+                <span class="brand-icon-nav">🧁</span>
+                <span class="brand-name">Shiv Bakery</span>
+            </a>
+            <div class="nav-links" id="nav-links">
+                <a href="#" class="nav-link active" onclick="scrollToSection('hero')" data-section="hero">Home</a>
+                <a href="#" class="nav-link" onclick="scrollToSection('products')" data-section="products">Our Menu</a>
+                <a href="#" class="nav-link" onclick="scrollToSection('about')" data-section="about">About</a>
+                <a href="#" class="nav-link" onclick="scrollToSection('contact')" data-section="contact">Contact</a>
+                <a href="admin.html" class="nav-link nav-link-admin">Admin Panel</a>
+            </div>
+            <div class="nav-actions">
+                <button class="account-btn" id="account-btn" onclick="handleAccountClick()" title="Account">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                        <circle cx="12" cy="7" r="4"></circle>
+                    </svg>
+                    <span class="account-name" id="account-name"></span>
+                </button>
+                <button class="cart-btn" id="cart-btn" onclick="toggleCart()">
+                    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" stroke-linejoin="round">
+                        <circle cx="9" cy="21" r="1"></circle>
+                        <circle cx="20" cy="21" r="1"></circle>
+                        <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
+                    </svg>
+                    <span class="cart-count" id="cart-count">0</span>
+                </button>
+                <button class="mobile-menu-btn" id="mobile-menu-btn" onclick="toggleMobileMenu()">
+                    <span></span><span></span><span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ====== HERO SECTION ====== -->
+    <section class="hero" id="hero">
+        <div class="hero-bg">
+            <img src="https://images.unsplash.com/photo-1509440159596-0249088772ff?w=1920&q=80" alt="Bakery"
+                class="hero-bg-img">
+            <div class="hero-overlay"></div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-badge">✨ Handcrafted with Love Since 2020</div>
+            <h1 class="hero-title">
+                Freshly Baked<br>
+                <span class="hero-title-accent">Every Morning</span>
+            </h1>
+            <p class="hero-subtitle">
+                Artisan breads, decadent cakes, buttery pastries — crafted from the finest ingredients,
+                baked to perfection, and delivered to your door.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn-hero-primary" onclick="scrollToSection('products')">
+                    Explore Our Menu
+                    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor"
+                        stroke-width="2.5">
+                        <line x1="5" y1="12" x2="19" y2="12"></line>
+                        <polyline points="12 5 19 12 12 19"></polyline>
+                    </svg>
+                </button>
+                <button class="btn-hero-secondary" onclick="scrollToSection('about')">
+                    Our Story
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-value">50+</span>
+                    <span class="hero-stat-label">Recipes</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">10K+</span>
+                    <span class="hero-stat-label">Happy Customers</span>
+                </div>
+                <div class="hero-stat-divider"></div>
+                <div class="hero-stat">
+                    <span class="hero-stat-value">5★</span>
+                    <span class="hero-stat-label">Average Rating</span>
+                </div>
+            </div>
+        </div>
+        <div class="scroll-indicator" onclick="scrollToSection('featured')">
+            <span>Scroll Down</span>
+            <div class="scroll-arrow">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FEATURED CATEGORIES ====== -->
+    <section class="section featured-section" id="featured">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">What We Offer</span>
+                <h2 class="section-title">Our Specialties</h2>
+                <p class="section-desc">From oven-fresh artisan breads to show-stopping celebration cakes</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card" onclick="filterByCategory('Cakes')">
+                    <div class="category-img-wrapper">
+                        <img src="images/BirthdayCake.jpg" alt="Cakes" loading="lazy">
+                        <div class="category-img-overlay"></div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Cakes</h3>
+                        <p>Handcrafted celebration & everyday cakes</p>
+                    </div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Pastries')">
+                    <div class="category-img-wrapper">
+                        <img src="images/cakeh.jpg" alt="Pastries" loading="lazy">
+                        <div class="category-img-overlay"></div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Pastries</h3>
+                        <p>Flaky croissants, muffins & tarts</p>
+                    </div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Breads')">
+                    <div class="category-img-wrapper">
+                        <img src="images/bread.jpg" alt="Breads" loading="lazy">
+                        <div class="category-img-overlay"></div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Breads</h3>
+                        <p>Artisan sourdough & rustic loaves</p>
+                    </div>
+                </div>
+                <div class="category-card" onclick="filterByCategory('Cookies')">
+                    <div class="category-img-wrapper">
+                        <img src="images/cookies.jpg" alt="Cookies" loading="lazy">
+                        <div class="category-img-overlay"></div>
+                    </div>
+                    <div class="category-info">
+                        <h3>Cookies</h3>
+                        <p>Freshly baked cookies & macarons</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== PRODUCTS / MENU SECTION ====== -->
+    <section class="section products-section" id="products">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Our Menu</span>
+                <h2 class="section-title">Freshly Baked Goods</h2>
+                <p class="section-desc">Every item is made fresh daily with premium ingredients</p>
+            </div>
+            <div class="product-filters" id="product-filters">
+                <button class="product-filter active" data-cat="all">All Items</button>
+                <button class="product-filter" data-cat="Cakes">🎂 Cakes</button>
+                <button class="product-filter" data-cat="Pastries">🥐 Pastries</button>
+                <button class="product-filter" data-cat="Breads">🍞 Breads</button>
+                <button class="product-filter" data-cat="Cookies">🍪 Cookies</button>
+            </div>
+            <div class="products-grid" id="shop-products-grid">
+                <!-- Filled dynamically -->
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== ABOUT SECTION ====== -->
+    <section class="section about-section" id="about">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-images">
+                    <div class="about-img about-img-main">
+                        <img src="images/h2.jpg" alt="Baker at work" loading="lazy">
+                    </div>
+                    <div class="about-img about-img-secondary">
+                        <img src="images/h3.jpg" alt="Fresh pastries" loading="lazy">
+                    </div>
+                    <div class="about-experience-badge">
+                        <span class="exp-number">6+</span>
+                        <span class="exp-text">Years of<br>Excellence</span>
+                    </div>
+                </div>
+                <div class="about-content">
+                    <span class="section-tag">Our Story</span>
+                    <h2 class="section-title" style="text-align:left">Baked with Passion,<br>Served with Love</h2>
+                    <p class="about-text">
+                        Founded in 2020, Shiv Bakery started as a small kitchen dream and grew into a beloved
+                        neighborhood bakery. We believe every bite should tell a story — one of quality ingredients,
+                        time-honored techniques, and genuine care.
+                    </p>
+                    <p class="about-text">
+                        Our master bakers wake up before dawn every day to ensure every loaf, cake, and pastry is
+                        baked to absolute perfection. We source organic flour, real butter, and seasonal fruits
+                        to create flavors that keep our customers coming back.
+                    </p>
+                    <div class="about-features">
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🌾</div>
+                            <div>
+                                <h4>Organic Ingredients</h4>
+                                <p>Sourced from local farms</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">👨‍🍳</div>
+                            <div>
+                                <h4>Expert Bakers</h4>
+                                <p>Classically trained artisans</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">🚚</div>
+                            <div>
+                                <h4>Fresh Delivery</h4>
+                                <p>Same-day doorstep delivery</p>
+                            </div>
+                        </div>
+                        <div class="about-feature">
+                            <div class="about-feature-icon">💜</div>
+                            <div>
+                                <h4>Made with Love</h4>
+                                <p>Every item baked to order</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== TESTIMONIALS ====== -->
+    <section class="section testimonials-section">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-tag">Testimonials</span>
+                <h2 class="section-title">What Our Customers Say</h2>
+            </div>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"The red velvet cake was absolutely divine! Best bakery in town. My
+                        family orders from them every week — the sourdough bread is to die for."</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">PS</div>
+                        <div>
+                            <div class="testimonial-name">Priya Sharma</div>
+                            <div class="testimonial-role">Regular Customer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card featured-testimonial">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Ordered a birthday cake for my daughter and it exceeded all
+                        expectations. The attention to detail and flavor was incredible. Shiv Bakery is simply the
+                        best!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">AG</div>
+                        <div>
+                            <div class="testimonial-name">Prathamesh Giri</div>
+                            <div class="testimonial-role">Loyal Customer</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-stars">★★★★★</div>
+                    <p class="testimonial-text">"Their croissants are genuinely the best I've ever had.
+                        Perfectly flaky, buttery, and fresh every single time. Highly recommend!"</p>
+                    <div class="testimonial-author">
+                        <div class="testimonial-avatar">RV</div>
+                        <div>
+                            <div class="testimonial-name">Rahul Verma</div>
+                            <div class="testimonial-role">Food Enthusiast</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== CONTACT SECTION ====== -->
+    <section class="section contact-section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+                <div class="contact-info">
+                    <span class="section-tag">Get in Touch</span>
+                    <h2 class="section-title" style="text-align:left">Visit Our Bakery</h2>
+                    <p class="contact-desc">Drop by our shop or reach out to place a custom order. We'd love to make
+                        something special for you.</p>
+                    <div class="contact-details">
+                        <div class="contact-item">
+                            <div class="contact-icon">📍</div>
+                            <div>
+                                <h4>Location</h4>
+                                <p>42, MG Road, Near Shiv Mandir,<br>Pune, Maharashtra 411001</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">📞</div>
+                            <div>
+                                <h4>Phone</h4>
+                                <p>+91 8698333062</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">🕐</div>
+                            <div>
+                                <h4>Hours</h4>
+                                <p>Mon - Sat: 6:00 AM - 9:00 PM<br>Sunday: 7:00 AM - 8:00 PM</p>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon">✉️</div>
+                            <div>
+                                <h4>Email</h4>
+                                <p>hello@shivbakery.in</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-form-wrapper">
+                    <form class="contact-form" id="contact-form" onsubmit="handleContactSubmit(event)">
+                        <h3>Send us a Message</h3>
+                        <div class="form-group">
+                            <label for="contact-name">Your Name</label>
+                            <input type="text" id="contact-name" class="form-input" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-email">Email Address</label>
+                            <input type="email" id="contact-email" class="form-input" placeholder="Your Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="contact-message">Message</label>
+                            <textarea id="contact-message" class="form-input" rows="4"
+                                placeholder="Tell us about your order or ask us anything..." required></textarea>
+                        </div>
+                        <button type="submit" class="btn-submit">Send Message</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ====== FOOTER ====== -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <span class="brand-icon-nav">🧁</span>
+                        <span class="brand-name">Shiv Bakery</span>
+                    </div>
+                    <p class="footer-desc">Artisan bakery crafting freshly baked goods with passion since 2020. Every
+                        bite is a celebration.</p>
+                    <div class="footer-socials">
+                        <a href="#" class="social-link" aria-label="Instagram">📸</a>
+                        <a href="#" class="social-link" aria-label="Facebook">👍</a>
+                        <a href="#" class="social-link" aria-label="Twitter">🐦</a>
+                    </div>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Quick Links</h4>
+                    <a href="#" onclick="scrollToSection('hero')">Home</a>
+                    <a href="#" onclick="scrollToSection('products')">Menu</a>
+                    <a href="#" onclick="scrollToSection('about')">About Us</a>
+                    <a href="#" onclick="scrollToSection('contact')">Contact</a>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Categories</h4>
+                    <a href="#" onclick="filterByCategory('Cakes')">Cakes</a>
+                    <a href="#" onclick="filterByCategory('Pastries')">Pastries</a>
+                    <a href="#" onclick="filterByCategory('Breads')">Breads</a>
+                    <a href="#" onclick="filterByCategory('Cookies')">Cookies</a>
+                </div>
+                <div class="footer-links-group">
+                    <h4>Info</h4>
+                    <a href="#">Delivery Policy</a>
+                    <a href="#">Custom Orders</a>
+                    <a href="#">FAQ</a>
+                    <a href="#">Careers</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 Shiv Bakery. All rights reserved. | Bhumika Biradar </p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- ====== SHOPPING CART SIDEBAR ====== -->
+    <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
+    <aside class="cart-sidebar" id="cart-sidebar">
+        <div class="cart-header">
+            <h3>🛒 Your Cart</h3>
+            <button class="cart-close" onclick="toggleCart()">&times;</button>
+        </div>
+        <div class="cart-items" id="cart-items">
+            <!-- Filled dynamically -->
+        </div>
+        <div class="cart-footer" id="cart-footer">
+            <div class="cart-total">
+                <span>Total</span>
+                <span class="cart-total-value" id="cart-total-value">₹0</span>
+            </div>
+            <button class="btn-checkout" onclick="openCheckoutModal()">Proceed to Checkout</button>
+            <button class="btn-clear-cart" onclick="clearCart()">Clear Cart</button>
+        </div>
+    </aside>
+
+    <!-- ====== CHECKOUT MODAL ====== -->
+    <div class="modal-overlay" id="checkout-modal">
+        <div class="modal">
+            <div class="modal-header">
+                <h3>🧾 Place Your Order</h3>
+                <button class="modal-close" onclick="closeCheckoutModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="checkout-user-badge" id="checkout-user-badge">
+                    <span class="checkout-user-icon">👤</span>
+                    <span>Ordering as <strong id="checkout-user-name">User</strong></span>
+                </div>
+                <div class="form-group">
+                    <label>Payment Method</label>
+                    <div class="radio-group">
+                        <label class="radio-label"><input type="radio" name="checkout-payment" value="cash" checked>
+                            💵 Cash on Delivery</label>
+                        <label class="radio-label"><input type="radio" name="checkout-payment" value="upi">
+                            📱 UPI / GPay</label>
+                        <label class="radio-label"><input type="radio" name="checkout-payment" value="card">
+                            💳 Card</label>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label>Special Instructions</label>
+                    <textarea id="checkout-notes" class="form-input" rows="2"
+                        placeholder="Any special requests..."></textarea>
+                </div>
+                <div class="checkout-summary" id="checkout-summary">
+                    <!-- Filled dynamically -->
+                </div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn-ghost" onclick="closeCheckoutModal()">Cancel</button>
+                <button class="btn-place-order" onclick="placeOrder()">🎉 Place Order</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== ORDER SUCCESS MODAL ====== -->
+    <div class="modal-overlay" id="success-modal">
+        <div class="modal success-modal-content">
+            <div class="success-animation">
+                <div class="success-checkmark">✅</div>
+                <h2>Order Placed!</h2>
+                <p class="success-order-id" id="success-order-id">Order #1001</p>
+                <div class="success-details">
+                    <span class="success-detail" id="success-order-items">2 items</span>
+                    <span class="success-detail-divider">•</span>
+                    <span class="success-detail" id="success-order-total">₹500</span>
+                </div>
+                <p class="success-message">Thank you! We'll start preparing your fresh baked goods right away. You can
+                    track your order status anytime.</p>
+                <div class="success-buttons">
+                    <button class="btn-hero-primary" onclick="viewMyOrdersFromSuccess()" style="margin-top:16px">📦 View
+                        My Orders</button>
+                    <button class="btn-hero-secondary" onclick="closeSuccessModal()"
+                        style="margin-top:10px;padding:12px 28px">Continue Shopping</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== TOAST CONTAINER ====== -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- ====== USER LOGIN / REGISTER MODAL ====== -->
+    <div class="modal-overlay" id="user-auth-modal">
+        <div class="modal user-auth-modal-content">
+            <div class="modal-header">
+                <h3 id="auth-modal-title">👤 Login to Your Account</h3>
+                <button class="modal-close" onclick="closeUserAuthModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <!-- Auth Tabs -->
+                <div class="auth-tabs">
+                    <button class="auth-tab active" id="tab-login" onclick="switchAuthTab('login')">Login</button>
+                    <button class="auth-tab" id="tab-register" onclick="switchAuthTab('register')">Register</button>
+                </div>
+
+                <!-- Login Form -->
+                <div id="auth-login-form">
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="user-login-email" class="form-input" placeholder="your@email.com"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="user-login-password" class="form-input" placeholder="Enter password"
+                            required>
+                    </div>
+                    <div class="auth-error" id="auth-login-error" style="display:none"></div>
+                    <button class="btn-place-order" style="width:100%" onclick="userLogin()">🔐 Login</button>
+                    <div class="auth-demo-hint">
+                        <p>🎯 <strong>Demo Login:</strong> Use any email below with password <code>1234</code></p>
+                        <p style="font-size:0.78rem;color:var(--text-dim);margin-top:4px;">priya@example.com,
+                            rahul@example.com, anjali@example.com</p>
+                    </div>
+                </div>
+
+                <!-- Register Form -->
+                <div id="auth-register-form" style="display:none">
+                    <div class="form-group">
+                        <label>Full Name</label>
+                        <input type="text" id="user-reg-name" class="form-input" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="email" id="user-reg-email" class="form-input" placeholder="your@email.com"
+                            required>
+                    </div>
+                    <div class="form-group">
+                        <label>Phone</label>
+                        <input type="tel" id="user-reg-phone" class="form-input" placeholder="98765-43210">
+                    </div>
+                    <div class="form-group">
+                        <label>Password</label>
+                        <input type="password" id="user-reg-password" class="form-input" placeholder="Create password"
+                            required>
+                    </div>
+                    <div class="auth-error" id="auth-register-error" style="display:none"></div>
+                    <button class="btn-place-order" style="width:100%" onclick="userRegister()">✨ Create
+                        Account</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== MY ORDERS MODAL ====== -->
+    <div class="modal-overlay" id="my-orders-modal">
+        <div class="modal my-orders-modal-content">
+            <div class="modal-header">
+                <h3>📦 My Orders</h3>
+                <button class="modal-close" onclick="closeMyOrdersModal()">&times;</button>
+            </div>
+            <div class="modal-body">
+                <div id="my-orders-list">
+                    <div class="my-orders-loading">Loading your orders...</div>
+                </div>
+            </div>
+            <div class="modal-footer" style="justify-content:space-between;">
+                <button class="btn-ghost" onclick="closeMyOrdersModal()">Close</button>
+                <button class="btn-ghost" onclick="refreshMyOrders()" style="color:var(--accent);">🔄 Refresh</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ====== USER ACCOUNT DROPDOWN ====== -->
+    <div class="user-account-dropdown" id="user-account-dropdown" style="display:none">
+        <div class="account-dropdown-header">
+            <div class="account-dropdown-avatar" id="account-dropdown-avatar">P</div>
+            <div>
+                <div class="account-dropdown-name" id="account-dropdown-name">User</div>
+                <div class="account-dropdown-email" id="account-dropdown-email">email</div>
+            </div>
+        </div>
+        <div class="account-dropdown-divider"></div>
+        <button class="account-dropdown-item" onclick="openMyOrdersModal()">📦 My Orders</button>
+        <button class="account-dropdown-item" onclick="userLogout()">🚪 Logout</button>
+    </div>
+
+    <script src="shop.js"></script>
+</body>
+
+</html>
