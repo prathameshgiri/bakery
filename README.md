@@ -83,7 +83,6 @@ This project was created as a college project and is for educational purposes.
 
 # 🥐 Premium Bakery Management System
 
-![Bakery Banner](./images/hero_banner.jpg)
 
 Welcome to the **Premium Bakery Management System**, a comprehensive digital solution crafted specifically to bridge the gap between traditional artisanal baking and modern e-commerce technology. 
 
@@ -208,24 +207,39 @@ graph TD
 ### 6.2 Use Case Diagram
 
 ```mermaid
-usecaseDiagram
-    actor Customer
-    actor Admin
-    actor Chef
+graph LR
+    %% Actors
+    Customer((Customer))
+    Admin((Admin))
+    Chef((Chef))
 
-    rectangle BakerySystem {
-        Customer --> (Browse Catalog)
-        Customer --> (Add to Cart)
-        Customer --> (Make Payment)
-        Customer --> (Track Order)
-        
-        Admin --> (Manage Inventory)
-        Admin --> (View Sales Reports)
-        Admin --> (Manage Products)
-        
-        Chef --> (View Pending Orders)
-        Chef --> (Update Order Status)
-    }
+    %% System Boundary
+    subgraph Bakery System
+        UC1(Browse Catalog)
+        UC2(Add to Cart)
+        UC3(Make Payment)
+        UC4(Track Order)
+        UC5(Manage Inventory)
+        UC6(View Sales Reports)
+        UC7(Manage Products)
+        UC8(View Pending Orders)
+        UC9(Update Order Status)
+    end
+
+    %% Customer Relationships
+    Customer --> UC1
+    Customer --> UC2
+    Customer --> UC3
+    Customer --> UC4
+
+    %% Admin Relationships
+    Admin --> UC5
+    Admin --> UC6
+    Admin --> UC7
+
+    %% Chef Relationships
+    Chef --> UC8
+    Chef --> UC9
 ```
 
 ### 6.3 Database Entity-Relationship (ER) Concept
@@ -271,12 +285,10 @@ The design philosophy for the Bakery Management System revolves around a "warm, 
 ### Customer Web Interface Mockup
 The customer portal focuses on high-quality imagery of the baked goods, ensuring that the visual appeal drives sales. The interface is completely responsive, ensuring a seamless shopping experience on mobile devices.
 
-![Customer UI Mockup](./images/ui_mockup.jpg)
 
 ### Administrator Dashboard Mockup
 The admin dashboard prioritizes functionality and data visualization. It uses a sidebar navigation system to allow staff to quickly switch between inventory, orders, and sales analytics.
 
-![Admin Dashboard Mockup](./images/admin_dashboard.jpg)
 
 *(Note: The images above represent the intended design language and layout for the application's frontend and backend interfaces.)*
 
